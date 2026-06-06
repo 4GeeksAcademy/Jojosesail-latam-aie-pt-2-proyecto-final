@@ -40,6 +40,8 @@ A las 10 de la mañana del lunes, algunos datos ya tienen dos días de antigüed
 - Alertas por umbrales.
 - Un asistente de IA al que pueda consultar en lenguaje natural.
 
+Me parece un problema que requiere atencion debido a que lo que no se mide no existe, es decir, si no hay KPIs y no hay comparaciones no se pueden tomar decisiones a nivel corporativo, interno y comercial, afectando el crecimiento y operatividad de la empresa.
+
 ## Mi idea de agente de IA
 
 Crearía un asistente que ayude a cada usuario según su cargo dentro de la empresa. El propósito sería verificar la información para evitar duplicados, prevenir confusiones entre locaciones y detectar si un pedido está en orden o presenta algún contratiempo.
