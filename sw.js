@@ -7,8 +7,7 @@ const CORE_ASSETS = [
   "./assets/images/logo-64.webp",
   "./assets/images/logo-96.webp",
   "./assets/images/trackflow-dashboard-360.webp",
-  "./assets/images/trackflow-dashboard-720.webp",
-  "./assets/images/trackflow-dashboard-1200.webp"
+  "./assets/images/trackflow-dashboard-667.webp"
 ];
 
 self.addEventListener("install", (event) => {
