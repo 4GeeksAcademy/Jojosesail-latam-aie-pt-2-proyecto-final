@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+	if ("serviceWorker" in navigator) {
+		navigator.serviceWorker.register("./sw.js").catch(() => {
+			// Ignore registration failures in environments without SW support.
+		});
+	}
+
 	const i18n = {
 		es: {
 			pageLang: "es",

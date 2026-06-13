@@ -8,7 +8,19 @@
   <meta name="keywords" content="logistica B2B, gestion de almacenes, fulfillment, ultima milla, devoluciones, Los Angeles, Zaragoza">
   <meta name="author" content="TrackFlow Tech">
   <meta name="robots" content="index, follow">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="//images.unsplash.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link
+    rel="preload"
+    as="image"
+    href="./assets/images/hero-lcp-1400.webp"
+    imagesrcset="./assets/images/hero-lcp-480.webp 480w, ./assets/images/hero-lcp-900.webp 900w, ./assets/images/hero-lcp-1400.webp 1400w"
+    imagesizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 700px"
+    fetchpriority="high"
+  >
+  <script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script defer src="validation.js"></script>
   <script type="application/ld+json">
     {
@@ -61,6 +73,9 @@
           <img
             src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=120&q=80"
             alt="Vista exterior de centro logistico moderno con muelles de carga para operaciones B2B"
+            width="120"
+            height="120"
+            decoding="async"
             class="h-10 w-10 rounded-xl object-cover ring-1 ring-orange-400/60"
           >
           <span class="text-base font-semibold tracking-wide text-amber-300 sm:text-lg">TrackFlow</span>
@@ -92,8 +107,15 @@
       </div>
       <figure class="min-h-64 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/70 shadow-2xl shadow-black/70 sm:min-h-80 lg:min-h-0">
         <img
-          src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1400&q=80"
+          src="./assets/images/hero-lcp-900.webp"
+          srcset="./assets/images/hero-lcp-480.webp 480w, ./assets/images/hero-lcp-900.webp 900w, ./assets/images/hero-lcp-1400.webp 1400w"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 700px"
           alt="Equipo de operaciones revisando inventario y salidas de pedidos dentro de almacen industrial"
+          width="1400"
+          height="933"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
           class="h-full w-full object-cover"
         >
       </figure>
