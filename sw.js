@@ -6,9 +6,9 @@ const CORE_ASSETS = [
   "./validation.js",
   "./assets/images/logo-80.webp",
   "./assets/images/logo-120.webp",
-  "./assets/images/hero-lcp-480.webp",
-  "./assets/images/hero-lcp-900.webp",
-  "./assets/images/hero-lcp-1400.webp"
+  "./assets/images/trackflow-dashboard-480.webp",
+  "./assets/images/trackflow-dashboard-900.webp",
+  "./assets/images/trackflow-dashboard-1400.webp"
 ];
 
 self.addEventListener("install", (event) => {
