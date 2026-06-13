@@ -1,9 +1,11 @@
-const CACHE_NAME = "trackflow-static-v1";
+const CACHE_NAME = "trackflow-static-v2";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./application.html",
   "./validation.js",
+  "./assets/images/logo-80.webp",
+  "./assets/images/logo-120.webp",
   "./assets/images/hero-lcp-480.webp",
   "./assets/images/hero-lcp-900.webp",
   "./assets/images/hero-lcp-1400.webp"
