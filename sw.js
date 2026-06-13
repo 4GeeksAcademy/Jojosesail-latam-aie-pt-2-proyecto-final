@@ -4,11 +4,11 @@ const CORE_ASSETS = [
   "./index.html",
   "./application.html",
   "./validation.js",
-  "./assets/images/logo-80.webp",
-  "./assets/images/logo-120.webp",
-  "./assets/images/trackflow-dashboard-480.webp",
-  "./assets/images/trackflow-dashboard-900.webp",
-  "./assets/images/trackflow-dashboard-1400.webp"
+  "./assets/images/logo-64.webp",
+  "./assets/images/logo-96.webp",
+  "./assets/images/trackflow-dashboard-360.webp",
+  "./assets/images/trackflow-dashboard-720.webp",
+  "./assets/images/trackflow-dashboard-1200.webp"
 ];
 
 self.addEventListener("install", (event) => {

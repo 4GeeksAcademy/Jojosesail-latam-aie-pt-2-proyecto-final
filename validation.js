@@ -1,8 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+	const runWhenIdle = (callback) => {
+		if ("requestIdleCallback" in window) {
+			window.requestIdleCallback(callback, { timeout: 1500 });
+			return;
+		}
+		window.setTimeout(callback, 300);
+	};
+
 	if ("serviceWorker" in navigator) {
-		navigator.serviceWorker.register("./sw.js").catch(() => {
-			// Ignore registration failures in environments without SW support.
-		});
+		window.addEventListener("load", () => {
+			runWhenIdle(() => {
+				navigator.serviceWorker.register("./sw.js").catch(() => {
+					// Ignore registration failures in environments without SW support.
+				});
+			});
+		}, { once: true });
 	}
 
 	const i18n = {
@@ -292,6 +304,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	forms.forEach((form) => {
 		const controls = Array.from(form.querySelectorAll("input, select, textarea"));
 		const statusEl = document.getElementById(`${form.id}Status`);
+		let realtimeValidationReady = false;
+		const validationTimers = new WeakMap();
 
 		const clearFieldError = (field) => {
 			if (field.type === "radio") {
@@ -459,14 +473,29 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		};
 
-		controls.forEach((field) => {
-			if (field.type === "radio") {
-				field.addEventListener("change", () => validateField(field));
-			} else {
-				field.addEventListener("input", () => validateField(field));
+		const enableRealtimeValidation = () => {
+			if (realtimeValidationReady) return;
+			realtimeValidationReady = true;
+
+			controls.forEach((field) => {
+				if (field.type === "radio") {
+					field.addEventListener("change", () => validateField(field));
+					return;
+				}
+
+				field.addEventListener("input", () => {
+					const existingTimer = validationTimers.get(field);
+					if (existingTimer) window.clearTimeout(existingTimer);
+					const nextTimer = window.setTimeout(() => validateField(field), 120);
+					validationTimers.set(field, nextTimer);
+				});
+
 				field.addEventListener("blur", () => validateField(field));
-			}
-		});
+			});
+		};
+
+		form.addEventListener("focusin", enableRealtimeValidation, { once: true });
+		form.addEventListener("change", enableRealtimeValidation, { once: true });
 
 		form.addEventListener("reset", () => {
 			const preserveStatus = form.dataset.preserveStatus === "true";
@@ -483,6 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		form.addEventListener("submit", (event) => {
 			event.preventDefault();
+			enableRealtimeValidation();
 			const { isValid, firstInvalidField } = validateForm();
 
 			if (!isValid) {
